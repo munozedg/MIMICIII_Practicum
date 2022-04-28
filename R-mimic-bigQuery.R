@@ -15,11 +15,15 @@ options(gargle_oauth_email = GOOGLE_EMAIL)
 # fecha actual ----
 hoy <- lubridate::today()
 
-bq_auth(); # This may prompt you for which pre-authorized credentials to use
+# This may prompt you for which pre-authorized credentials to use
+# bq_auth();
+
 tb <- bq_project_query(PROJECTID, SQLQUERY00);
 
 # Ejecutar query & crear dataframe ----
 message(as.character(Sys.time()),"Ejecutando query... \n")
 
 dat1 <- bq_table_download(tb) # ej. max_results = 1000
-save(dat1,file.path('data','cached_data.rdata'));
+
+save(dat1, file = file.path('data','cached_data.rdata') );
+
