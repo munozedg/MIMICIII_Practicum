@@ -25,5 +25,6 @@ message(as.character(Sys.time()),"Ejecutando query... \n")
 
 dat1 <- bq_table_download(tb) # ej. max_results = 1000
 
-save(dat1, file = file.path('data','cached_data.rdata') );
+save(dat1,file=inputdata);
+
 
